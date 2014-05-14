@@ -1,0 +1,50 @@
+
+
+<div class="row toolbar">
+  <div class="col-md-2">
+    <h3 class="date-header">{{date}}</h3>
+  </div>
+  <div class="col-md-2 col-xs-2 col-sm-2">
+    <div class="input-group">
+      <a href="/date/{{past}}" class="btn btn-default">
+	<span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a href="/date/{{future}}" class="btn btn-default">
+	<span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-3 col-xs-3 col-sm-3">
+    <span class="input-group date" data-date-format="YYYY-MM-DD" id="dp4">
+      <input type="text" class="form-control" />
+      <span class="input-group-addon">
+	<span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </span>
+  </div>
+</div>
+{{#events}}
+{{#twitter}}
+{{> tweet}}
+{{/twitter}}
+{{#facebook}}
+{{> status}}
+{{/facebook}}
+{{#strava}}
+{{> activity}}
+{{/strava}}
+{{#lastfm}}
+{{> scrobble}}
+{{/lastfm}}
+{{/events}}
+<script>
+  $(function() {
+  $('#dp4').datetimepicker({
+  pickTime:false,
+  defaultDate:"{{date}}",
+  maxDate:"{{today}}"
+  }).on("dp.change", function(e) {
+  window.location.pathname = "/date/"+moment(e.date).format("YYYY-MM-DD");
+  });
+  });
+</script>

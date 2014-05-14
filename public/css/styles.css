@@ -1,0 +1,25 @@
+h3.date-header {
+    color:black;
+    display:inline;
+    position:relative;
+    top:10px;
+}
+.toolbar {
+    
+    margin-bottom: 15px;
+}
+h4.service-header {
+    display: inline;
+    margin-right:5px;
+}
+img.service-icon {
+    position: relative;
+    top: -3px;
+    margin-right:5px;
+}
+body {
+    background:#555;
+}
+div.event {
+    background:#999;
+}
